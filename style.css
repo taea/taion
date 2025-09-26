@@ -1,0 +1,232 @@
+:root {
+    --primary-color: #4A90E2;
+    --secondary-color: #F39C12;
+    --text-color: #333;
+    --bg-color: #F5F7FA;
+    --card-bg: #FFFFFF;
+    --border-color: #E1E8ED;
+    --success-color: #27AE60;
+    --shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: var(--primary-color);
+    font-size: 28px;
+    margin-bottom: 30px;
+    font-weight: 600;
+}
+
+#temperature-form {
+    background: var(--card-bg);
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: var(--shadow);
+    margin-bottom: 30px;
+}
+
+.input-group {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 25px;
+    gap: 10px;
+}
+
+#temperature {
+    font-size: 48px;
+    width: 180px;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    padding: 15px;
+    text-align: center;
+    transition: border-color 0.3s;
+    appearance: textfield;
+}
+
+#temperature::-webkit-inner-spin-button,
+#temperature::-webkit-outer-spin-button {
+    opacity: 1;
+    height: 60px;
+}
+
+#temperature:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+.unit {
+    font-size: 36px;
+    color: var(--text-color);
+    font-weight: 500;
+}
+
+.submit-btn {
+    width: 100%;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 16px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.1s;
+}
+
+.submit-btn:hover {
+    background-color: #3A7BC8;
+}
+
+.submit-btn:active {
+    transform: scale(0.98);
+}
+
+#records-section {
+    background: var(--card-bg);
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: var(--shadow);
+}
+
+h2 {
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: var(--text-color);
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 10px;
+}
+
+#records-list {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.record-item {
+    padding: 12px;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.2s;
+}
+
+.record-item:hover {
+    background-color: var(--bg-color);
+}
+
+.record-item:last-child {
+    border-bottom: none;
+}
+
+.record-date {
+    font-size: 14px;
+    color: #666;
+}
+
+.record-temp {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.delete-btn {
+    background-color: #E74C3C;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 5px 10px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.delete-btn:hover {
+    background-color: #C0392B;
+}
+
+.empty-message {
+    text-align: center;
+    padding: 40px 20px;
+    color: #999;
+    font-size: 14px;
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+
+    #temperature-form {
+        padding: 20px;
+    }
+
+    #temperature {
+        font-size: 36px;
+        width: 140px;
+        padding: 12px;
+    }
+
+    .unit {
+        font-size: 28px;
+    }
+
+    .submit-btn {
+        font-size: 16px;
+        padding: 14px;
+    }
+
+    .record-item {
+        padding: 10px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .delete-btn {
+        align-self: flex-end;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --text-color: #E1E8ED;
+        --bg-color: #1A1A2E;
+        --card-bg: #16213E;
+        --border-color: #3A3A5C;
+    }
+
+    #temperature {
+        background-color: var(--card-bg);
+        color: var(--text-color);
+    }
+
+    .record-date {
+        color: #AAB8C2;
+    }
+}
